@@ -2,6 +2,7 @@
 Or How To Get Your Coffee In Peace.
 
 ## Continuous integration
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2d81dc4be75c4cc2bc4cf2a3e9e6f98e)](https://app.codacy.com/app/bverhagen/exec-helper?utm_source=github.com&utm_medium=referral&utm_content=bverhagen/exec-helper&utm_campaign=badger)
 [![build status](https://gitlab.com/bverhagen/exec-helper/badges/master/build.svg)](https://gitlab.com/bverhagen/exec-helper/commits/master)
 [![coverage report](https://gitlab.com/bverhagen/exec-helper/badges/master/coverage.svg)](https://gitlab.com/bverhagen/exec-helper/commits/master)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/exec-helper/badge.svg)](https://scan.coverity.com/projects/exec-helper)
