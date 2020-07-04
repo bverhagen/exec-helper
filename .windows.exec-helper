@@ -157,27 +157,29 @@ command-line-command:
             - COMPILER
             - MODE
             - EH_WORKING_DIR
-        command-line: [cmake, -G, "Ninja", "-H.", "-Bbuild/{COMPILER}/{MODE}/build", "-DCMAKE_INSTALL_PREFIX=build/{COMPILER}/{MODE}/install", "-DCMAKE_BUILD_TYPE={MODE}", -DBUILD_HTML_DOCUMENTATION=OFF, -DBUILD_XML_DOCUMENTATION=OFF, -DBUILD_MAN_DOCUMENTATION=OFF, -DTERMINATE_ON_ASSERT_FAILURE=ON, "-DBOOST_ROOT=C:/local/boost_1_71_0", -DBUILD_MAN_DOCUMENTATION=OFF, -DENABLE_TESTING=OFF, -DBoost_NO_SYSTEM_PATHS=OFF]
+        command-line: [cmake, -G, "Ninja", "-H.", "-Bbuild/{COMPILER}/{MODE}/build", "-DCMAKE_INSTALL_PREFIX=build/{COMPILER}/{MODE}/install", "-DCMAKE_BUILD_TYPE={MODE}", -DBUILD_USAGE_DOCUMENTATION=OFF, -DBUILD_API_DOCUMENTATION=OFF, -DTERMINATE_ON_ASSERT_FAILURE=ON, "-DBOOST_ROOT=C:/local/boost_1_71_0", -DENABLE_TESTING=OFF, -DBoost_NO_SYSTEM_PATHS=OFF, -DVERSION=0.6.0_8869989, "-DCOPYRIGHT=2020 (c) Bart Verhagen", '-DACTUAL_PLUGINS_INSTALL_PREFIX=C:\Program Files\exec-helper']
 
     distclean:
         patterns:
             - COMPILER
             - MODE
         command-line: [ rm, -rf, "build/{COMPILER}/{MODE}"]
+
     install:
         patterns:
             - COMPILER
             - MODE
             - COMPONENT
         command-line: [ cmake, "-DCOMPONENT={COMPONENT}", -P, "build/{COMPILER}/{MODE}/build/cmake_install.cmake"]
+
     create-installer:
         patterns:
             - COMPILER
             - MODE
-        working-dir: "build/{COMPILER}/{MODE}/install/bin"
+        working-dir: "build/{COMPILER}/{MODE}/install"
         command-line:
-            - cp-script: [ copy, /Y, ..\..\..\..\..\installer.nsi, .]
-            - build: [ C:\Program Files (x86)\NSIS\Bin\makensis.exe, ..\..\..\..\..\installer.nsi]
+#            - copy-config: [ copy, ..\..\..\..\installer.nsi, .]
+            - build: [ C:\Program Files (x86)\NSIS\Bin\makensis.exe, installer.nsi]
     unittest:
         patterns:
             - COMPILER

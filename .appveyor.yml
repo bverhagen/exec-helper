@@ -25,6 +25,7 @@ install:
 
 build_script:
     - echo %CONFIGURATION%
+    - pip install sphinx-build
     - "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\Build\\vcvarsall.bat\" %PLATFORM%"
     - cmake -G Ninja -H. -Bbuild -DCMAKE_INSTALL_PREFIX=install -DCMAKE_BUILD_TYPE=%CONFIGURATION% -DBOOST_ROOT=C:\Libraries\boost_1_71_0 -DBoost_NO_SYSTEM_PATHS=ON -DENABLE_TESTING=OFF -DBUILD_MAN_DOCUMENTATION=OFF -DBUILD_HTML_DOCUMENTATION=OFF -DVERSION="0.4.1" -DCOPYRIGHT="Copyright (c) 2020 Bart Verhagen"
     - ninja -C build 

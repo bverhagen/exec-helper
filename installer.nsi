@@ -23,7 +23,8 @@ Section
     File /a bin\exec-helper.exe
     File /a bin\eh.exe
     File /a bin\lua51.dll
-    File /a LICENSE
+    File /a share\exec-helper\LICENSE
+    File /a share\exec-helper\plugins\*
 
     # define uninstaller name
     WriteUninstaller "$INSTDIR\uninstaller.exe"

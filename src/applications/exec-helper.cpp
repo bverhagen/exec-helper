@@ -248,7 +248,7 @@ inline Plugins discoverPlugins(const Paths& searchPaths) noexcept {
                    entry.path().extension() == ".lua") {
                     LOG(trace) << "Module " << entry.path().stem()
                                << " found at " << path;
-                    auto newId = entry.path().stem();
+                    auto newId = entry.path().stem().string();
                     auto newPlugin = shared_ptr<const Plugin>(
                         new execHelper::plugins::LuaPlugin(entry));
 
@@ -429,7 +429,7 @@ int execHelperMain(int argc, char** argv, char** envp) {
 #endif
 
         settingsFile = getSettingsFile(settingsFileValue, env);
-    } catch(const runtime_error& e) {
+    } catch(const runtime_error&) {
         if(firstPassFleetingOptions.getHelp()) {
             printHelp(args[0], firstPassOptions, SettingsNode("Options"));
             return EXIT_SUCCESS;

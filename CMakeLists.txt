@@ -93,3 +93,5 @@ endif()
 add_subdirectory(docs)
 add_subdirectory(gitchangelog)
 add_subdirectory(completion)
+
+install(FILES LICENSE DESTINATION  share/exec-helper COMPONENT runtime)
